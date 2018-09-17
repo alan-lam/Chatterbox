@@ -31,6 +31,7 @@
         android:text=""/>
 
     <Button
+        android:id="@+id/start_server"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="0.1"
@@ -52,6 +53,7 @@
         android:text="Enter Server IP Address:"/>
 
     <EditText
+        android:id="@+id/ip_input"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.1"
@@ -59,6 +61,7 @@
         android:digits="0123456789."/>
 
     <Button
+        android:id="@+id/connect_server"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="0.1"
