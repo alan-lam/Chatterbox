@@ -1,11 +1,14 @@
 package com.example.alan.chatterbox;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
+import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -24,6 +27,7 @@ public class ServerActivity extends AppCompatActivity {
     Button enter_button;
     EditText enter_message;
     LinearLayout message_history;
+    ScrollView scrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,7 @@ public class ServerActivity extends AppCompatActivity {
         enter_button = findViewById(R.id.enter_button);
         enter_message = findViewById(R.id.enter_message);
         message_history = findViewById(R.id.message_history);
+        scrollView = findViewById(R.id.scroll_view);
         try {
             startServer();
         }
@@ -84,7 +89,16 @@ public class ServerActivity extends AppCompatActivity {
     }
 
     public void enter (View view) {
-
+        String message = enter_message.getText().toString();
+        if (message.equals("")) {
+            return;
+        }
+        TextView tv = new TextView(this);
+        tv.setText(message);
+        tv.setTextColor(Color.BLUE);
+        message_history.addView(tv);
+        enter_message.setText("");
+        scrollView.fullScroll(View.FOCUS_DOWN);
     }
 }
 
