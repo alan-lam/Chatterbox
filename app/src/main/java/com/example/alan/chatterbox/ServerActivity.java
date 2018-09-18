@@ -2,6 +2,10 @@ package com.example.alan.chatterbox;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,11 +21,18 @@ public class ServerActivity extends AppCompatActivity {
 
     static ArrayList<ClientHandler> ar = new ArrayList<>();
     static CountDownLatch x = new CountDownLatch(1);
+    Button enter_button;
+    EditText enter_message;
+    LinearLayout message_history;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_server);
+
+        enter_button = findViewById(R.id.enter_button);
+        enter_message = findViewById(R.id.enter_message);
+        message_history = findViewById(R.id.message_history);
         try {
             startServer();
         }
@@ -40,6 +51,40 @@ public class ServerActivity extends AppCompatActivity {
         Thread t = new Thread(c);
         ar.add(c);
         t.start();
+
+        /*try {
+            x.await();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }*/
+
+        /*(new Thread() {
+            @Override
+            public void run() {
+                Socket s;
+                while (true) {
+                    try {
+                        s = ss.accept();
+                        BufferedReader in = new BufferedReader(new InputStreamReader(s
+                                .getInputStream()));
+                        PrintWriter out = new PrintWriter(s.getOutputStream(), true);
+
+                        ClientHandler c = new ClientHandler(s, in, out);
+                        Thread t = new Thread(c);
+                        ar.add(c);
+                        t.start();
+                    }
+                    catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();*/
+    }
+
+    public void enter (View view) {
+
     }
 }
 

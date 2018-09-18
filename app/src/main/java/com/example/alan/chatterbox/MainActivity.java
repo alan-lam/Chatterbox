@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
         start_server.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View view) {
-                Intent serverActivity = new Intent(MainActivity.this, ServerActivity.class);
-                startActivity(serverActivity);
+                Intent userLogin = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(userLogin);
             }
         });
 
