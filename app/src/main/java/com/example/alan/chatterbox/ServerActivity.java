@@ -109,8 +109,16 @@ class ClientHandler implements Runnable {
         this.x = x;
     }
 
-    private void setName(String name) {
+    public String getName() {
+        return this.name;
+    }
+
+    private void setName (String name) {
         this.name = name;
+    }
+
+    public boolean getLoginStatus() {
+        return this.isLoggedIn;
     }
 
     @Override

@@ -7,8 +7,8 @@
     tools:context=".LoginActivity">
 
     <EditText
+        android:id="@+id/login_edittext"
         android:layout_centerInParent="true"
-        android:id="@+id/edittext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Enter your name"
@@ -18,7 +18,7 @@
         android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edittext"
+        android:layout_below="@+id/login_edittext"
         android:layout_centerHorizontal="true"
         android:text="Login" />
 
